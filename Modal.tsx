@@ -1,6 +1,6 @@
 import { ModalUnstyled, ModalUnstyledProps } from '@mui/base';
-import IcClose from 'src/image/ic-close.svg';
 import Backdrop from './Backdrop';
+import IcClose from './image/ic-close.svg';
 
 type Props = ModalUnstyledProps & {
   handleClose: () => void;

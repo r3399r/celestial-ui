@@ -1,5 +1,5 @@
 import { Controller, useFormContext } from 'react-hook-form';
-import Input, { Props as InputProps } from 'src/component/celestial-ui/Input';
+import Input, { Props as InputProps } from './Input';
 
 /**
  * This component should be put inside Form component:
