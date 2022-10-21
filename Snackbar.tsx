@@ -1,4 +1,4 @@
-import SnackbarUnstyled, { SnackbarUnstyledProps } from '@mui/base/SnackbarUnstyled';
+import { SnackbarUnstyled, SnackbarUnstyledProps } from '@mui/base';
 import classNames from 'classnames';
 import { ReactElement, useRef, useState } from 'react';
 import { Transition } from 'react-transition-group';
