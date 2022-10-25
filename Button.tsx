@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { ButtonHTMLAttributes } from 'react';
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
-  appearance?: 'primary' | 'secondary' | 'default';
+  appearance?: 'primary' | 'secondary' | 'default' | 'error';
 };
 
 const Button = ({ appearance = 'primary', className, ...props }: Props) => (
@@ -15,8 +15,10 @@ const Button = ({ appearance = 'primary', className, ...props }: Props) => (
           appearance === 'primary',
         'bg-grey-500 text-navy-900 active:bg-grey-300 disabled:text-opacity-30':
           appearance === 'secondary',
-        'bg-teal-500 text-white active:bg-teal-400 disabled:bg-teal-300 disabled:text-opacity-40':
+        'bg-teal-500 text-white active:bg-teal-400 disabled:bg-teal-300 disabled:text-opacity-70':
           appearance === 'default',
+        'bg-tomato-500 text-white active:bg-tomato-400 disabled:bg-tomato-300 disabled:text-opacity-70':
+          appearance === 'error',
       },
     )}
     {...props}

@@ -10,16 +10,20 @@ type Props = {
   children: ReactElement;
   cancelBtn?: string;
   confirmBtn?: string;
+  deleteBtn?: string;
   onConfirm?: () => void;
+  onDelete?: () => void;
 };
 
-const ModalForm = ({
+const ModalVanilla = ({
   title,
   children,
   cancelBtn,
   confirmBtn,
+  deleteBtn,
   handleClose,
   onConfirm,
+  onDelete,
   ...props
 }: Props) => (
   <Modal handleClose={handleClose} {...props}>
@@ -33,6 +37,11 @@ const ModalForm = ({
               {cancelBtn}
             </Button>
           )}
+          {deleteBtn && (
+            <Button appearance="error" onClick={onDelete} type="button">
+              {deleteBtn}
+            </Button>
+          )}
           {confirmBtn && (
             <Button appearance="default" onClick={onConfirm} type="button">
               {confirmBtn}
@@ -44,4 +53,4 @@ const ModalForm = ({
   </Modal>
 );
 
-export default ModalForm;
+export default ModalVanilla;
