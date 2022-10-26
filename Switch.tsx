@@ -37,6 +37,7 @@ const Switch = ({ defaultChecked = false, onChange, disabled, ...props }: Props)
         className="absolute w-full h-full top-0 left-0 opacity-0 z-0 m-0 cursor-[inherit]"
         onChange={handleChange}
         disabled={disabled}
+        defaultChecked={defaultChecked}
         {...props}
       />
     </span>
