@@ -13,7 +13,7 @@ const MultiSelect = forwardRef(
           'bg-grey-200 p-1.5 my-1.5 min-w-[200px] rounded shadow-md overflow-auto max-h-[320px]',
       },
       popper: { className: 'z-10' },
-      ...props.slots,
+      ...props.slotProps,
     };
 
     return <MultiSelectUnstyled {...props} ref={ref} slotProps={slotProps} />;

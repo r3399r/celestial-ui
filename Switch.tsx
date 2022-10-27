@@ -1,15 +1,8 @@
+import { useSwitch, UseSwitchParameters } from '@mui/base';
 import classNames from 'classnames';
-import { ChangeEvent, InputHTMLAttributes, useState } from 'react';
 
-type Props = InputHTMLAttributes<HTMLInputElement>;
-
-const Switch = ({ defaultChecked = false, onChange, disabled, ...props }: Props) => {
-  const [checked, setChecked] = useState<boolean>(defaultChecked);
-
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setChecked(event.target.checked);
-    onChange && onChange(event);
-  };
+const Switch = (props: UseSwitchParameters) => {
+  const { getInputProps, checked, disabled } = useSwitch(props);
 
   return (
     <span
@@ -33,12 +26,8 @@ const Switch = ({ defaultChecked = false, onChange, disabled, ...props }: Props)
         )}
       />
       <input
-        type="checkbox"
         className="absolute w-full h-full top-0 left-0 opacity-0 z-0 m-0 cursor-[inherit]"
-        onChange={handleChange}
-        disabled={disabled}
-        defaultChecked={defaultChecked}
-        {...props}
+        {...getInputProps()}
       />
     </span>
   );

@@ -1,11 +1,11 @@
 # celestial-ui
 
-此專案為 celestial studio 開發之共用 UI 元件，由母專案對此專案進行維護
+此專案為 celestial studio 開發之共用 UI 元件，由母專案對此子專案進行維護
 
-無 npm package
-母專案需要安裝 react, tailwindcss, material ui base, and react-transition-group 才能正確使用
+母專案需要 npm 安裝需要的套件且版本正確才能正常使用
 
-- react
-- tailwind css https://tailwindcss.com/docs/installation
-- material ui base https://mui.com/base/getting-started/installation/
-- react-transition-group
+## required pacakges
+`react`: `^18.2.0`
+`@mui/base`: `^5.0.0-alpha.103`
+`tailwindcss`: `^3.1.8`
+`react-transition-group`: `^4.4.5`
