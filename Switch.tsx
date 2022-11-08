@@ -6,22 +6,25 @@ const Switch = (props: UseSwitchParameters) => {
 
   return (
     <span
-      className={classNames('w-10 h-6 relative inline-block', {
-        'opacity-40 cursor-not-allowed': disabled,
+      className={classNames('w-11 h-6 relative inline-block', {
+        'cursor-not-allowed': disabled,
         'cursor-pointer': !disabled,
       })}
     >
       <span
-        className={classNames('rounded-2xl h-full block w-full absolute', {
-          'bg-navy-700': checked,
-          'bg-navy-100': !checked,
+        className={classNames('rounded-3xl h-full block w-full absolute', {
+          'bg-teal-500': checked && !disabled,
+          'bg-grey-500': !checked && !disabled,
+          'bg-teal-300': checked && disabled,
+          'bg-grey-200': !checked && disabled,
         })}
       />
       <span
         className={classNames(
-          'block w-4 h-4 top-1 left-1 rounded-2xl bg-white relative transition-all',
+          'block w-[18px] h-[18px] top-[3px] rounded-2xl bg-white relative transition-all',
           {
-            'left-5': checked,
+            'left-[23px]': checked,
+            'left-[3px]': !checked,
           },
         )}
       />
