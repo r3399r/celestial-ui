@@ -9,7 +9,7 @@ type Props = {
 const Loader = ({ open }: Props) => (
   <ModalUnstyled
     open={open}
-    className="fixed right-0 bottom-0 top-0 left-0 flex items-center justify-center"
+    className="z-20 fixed right-0 bottom-0 top-0 left-0 flex items-center justify-center"
     slots={{ backdrop: Backdrop }}
   >
     <div className="w-20 outline-none">
