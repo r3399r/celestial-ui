@@ -29,7 +29,7 @@ const ModalForm = <T extends FieldValues>({
   <Modal handleClose={handleClose} {...props}>
     <Form methods={methods} onSubmit={onSubmit}>
       {title && <H2 className="mb-[15px]">{title}</H2>}
-      <div className="pb-[20px]">{children}</div>
+      <div>{children}</div>
       {(cancelBtn || confirmBtn) && (
         <div className="flex justify-end pt-[10px] gap-[15px] pb-[30px] flex-wrap">
           {cancelBtn && (

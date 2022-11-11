@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { HTMLAttributes } from 'react';
 
-type Props = HTMLAttributes<HTMLDivElement> & {
+export type Props = HTMLAttributes<HTMLDivElement> & {
   size?: 'l' | 'm' | 's';
   bold?: boolean;
 };

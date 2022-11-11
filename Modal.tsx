@@ -8,7 +8,7 @@ type Props = ModalUnstyledProps & {
 
 const Modal = ({ children, handleClose, ...props }: Props) => (
   <ModalUnstyled
-    className="fixed right-0 bottom-0 top-0 left-0 flex items-center justify-center"
+    className="z-10 fixed right-0 bottom-0 top-0 left-0 flex items-center justify-center"
     slots={{ backdrop: Backdrop }}
     onClose={() => handleClose()}
     {...props}
@@ -21,7 +21,7 @@ const Modal = ({ children, handleClose, ...props }: Props) => (
           onClick={handleClose}
         />
       </div>
-      <div className="px-5">{children}</div>
+      <div className="px-5 pb-[20px]">{children}</div>
     </div>
   </ModalUnstyled>
 );
