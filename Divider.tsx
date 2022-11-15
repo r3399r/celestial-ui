@@ -5,7 +5,7 @@ type Props = {
 };
 
 const Divider = ({ className }: Props) => (
-  <div className={classNames('h-[1px] bg-grey-500 my-5', className)} />
+  <div className={classNames('h-[1px] bg-grey-300', className)} />
 );
 
 export default Divider;
