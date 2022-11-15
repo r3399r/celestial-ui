@@ -19,13 +19,21 @@ type Props = {
   children: ReactNode | ReactNode[];
   label?: string;
   disabled?: boolean;
+  defaultValue?: string;
   value?: string;
   onChange?: (v: string) => void;
 };
 
-const Select = ({ children, label, disabled, onChange, value: controlledSelectedValue }: Props) => {
+const Select = ({
+  children,
+  label,
+  disabled,
+  onChange,
+  defaultValue,
+  value: controlledSelectedValue,
+}: Props) => {
   const [open, setOpen] = useState<boolean>(false);
-  const [selected, setSelected] = useState<string>('');
+  const [selected, setSelected] = useState<string>(defaultValue ?? '');
 
   const options = useMemo(
     () =>
