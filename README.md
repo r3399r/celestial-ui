@@ -9,3 +9,4 @@
 `@mui/base`: `^5.0.0-alpha.103`
 `tailwindcss`: `^3.1.8`
 `react-transition-group`: `^4.4.5`
+`@mui/x-date-pickers`: `^5.0.8`

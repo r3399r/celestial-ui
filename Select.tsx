@@ -67,7 +67,7 @@ const Select = ({ children, label, disabled, onChange, value: controlledSelected
           <div>
             {options.find((v) => v.value === (controlledSelectedValue ?? selected))?.children}
           </div>
-          <div>{disabled ? <img src={IcSelect} /> : <img src={IcSelectDisabled} />}</div>
+          <div>{disabled ? <img src={IcSelectDisabled} /> : <img src={IcSelect} />}</div>
         </div>
         <Modal open={open} handleClose={() => setOpen(false)} showClose={false} px={false}>
           <>{children}</>
