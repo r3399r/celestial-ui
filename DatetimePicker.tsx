@@ -11,15 +11,20 @@ import Modal from './Modal';
 
 type Props = {
   label?: string;
-  initValue: Date;
-  value: Date;
-  setValue: (v: Date) => void;
+  initDate: Date;
+  onChange?: (v: Date) => void;
   cancelTxt: string;
   confirmTxt: string;
 };
 
-const DatetimePicker = ({ label, initValue, value, setValue, cancelTxt, confirmTxt }: Props) => {
+const DatetimePicker = ({ label, initDate, onChange, cancelTxt, confirmTxt }: Props) => {
   const [open, setOpen] = useState<boolean>(false);
+  const [date, setDate] = useState<Date>(initDate);
+
+  const onDateChange = (v: Date) => {
+    setDate(v);
+    onChange && onChange(v);
+  };
 
   return (
     <div className="w-full">
@@ -28,7 +33,7 @@ const DatetimePicker = ({ label, initValue, value, setValue, cancelTxt, confirmT
         className="rounded bg-grey-200 outline-none p-2 h-[40px] cursor-pointer flex justify-between"
         onClick={() => setOpen(true)}
       >
-        <div>{format(value, 'yyyy/MM/dd HH:mm')}</div>
+        <div>{format(date, 'yyyy/MM/dd HH:mm')}</div>
         <div>
           <img src={IcSelect} />
         </div>
@@ -36,9 +41,9 @@ const DatetimePicker = ({ label, initValue, value, setValue, cancelTxt, confirmT
       <Modal open={open} handleClose={() => setOpen(false)} showClose={false} px={false}>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <StaticDateTimePicker
-            value={value}
-            onChange={(newValue) => {
-              newValue && setValue(newValue);
+            value={date}
+            onChange={(v) => {
+              v && onDateChange(v);
             }}
             renderInput={({ inputProps }) => <Input {...inputProps} />}
             ampm={false}
@@ -54,12 +59,18 @@ const DatetimePicker = ({ label, initValue, value, setValue, cancelTxt, confirmT
               appearance="secondary"
               onClick={() => {
                 setOpen(false);
-                setValue(initValue);
+                onDateChange(initDate);
               }}
             >
               {cancelTxt}
             </Button>
-            <Button appearance="default" onClick={() => setOpen(false)}>
+            <Button
+              appearance="default"
+              onClick={() => {
+                setOpen(false);
+                onDateChange(date);
+              }}
+            >
               {confirmTxt}
             </Button>
           </div>
