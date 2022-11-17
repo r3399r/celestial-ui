@@ -9,8 +9,8 @@ export type Props = InputHTMLAttributes<HTMLInputElement> & {
 };
 
 const Input = forwardRef<HTMLInputElement, Props>(
-  ({ label, helper, error, disabled, onChange, regex, ...props }, ref) => {
-    const [value, setValue] = useState<string>('');
+  ({ label, helper, error, disabled, onChange, regex, defaultValue, ...props }, ref) => {
+    const [value, setValue] = useState<string>((defaultValue as string) ?? '');
     const onInput = (v: ChangeEvent<HTMLInputElement>) => {
       if (regex !== undefined && regex.test(v.target.value) === false) return;
       setValue(v.target.value);

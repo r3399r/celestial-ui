@@ -63,7 +63,13 @@ const Select = ({
           </div>
         )}
         <div
-          className="rounded bg-grey-200 outline-none p-2 h-[40px] cursor-pointer flex justify-between"
+          className={classNames(
+            'rounded bg-grey-200 outline-none p-2 h-[40px] flex justify-between',
+            {
+              'cursor-pointer': !disabled,
+              'cursor-not-allowed': !!disabled,
+            },
+          )}
           onClick={() => !disabled && setOpen(true)}
         >
           <div
