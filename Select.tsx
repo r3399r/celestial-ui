@@ -63,16 +63,15 @@ const Select = ({
           </div>
         )}
         <div
-          className={classNames(
-            'rounded bg-grey-200 outline-none p-2 h-[40px] cursor-pointer flex justify-between',
-            {
-              'text-grey-500 placeholder:text-grey-500': !!disabled,
-              'text-navy-900 placeholder:text-navy-100': !disabled,
-            },
-          )}
-          onClick={() => setOpen(true)}
+          className="rounded bg-grey-200 outline-none p-2 h-[40px] cursor-pointer flex justify-between"
+          onClick={() => !disabled && setOpen(true)}
         >
-          <div>
+          <div
+            className={classNames({
+              'text-grey-500': !!disabled,
+              'text-navy-900': !disabled,
+            })}
+          >
             {options.find((v) => v.value === (controlledSelectedValue ?? selected))?.children}
           </div>
           <div>{disabled ? <img src={IcSelectDisabled} /> : <img src={IcSelect} />}</div>
