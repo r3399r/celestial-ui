@@ -9,7 +9,7 @@ export type Props = InputHTMLAttributes<HTMLInputElement> & {
 };
 
 const Input = forwardRef<HTMLInputElement, Props>(
-  ({ label, helper, error, disabled, onChange, regex, defaultValue, ...props }, ref) => {
+  ({ label, helper, error, disabled, onChange, regex, defaultValue, className, ...props }, ref) => {
     const [value, setValue] = useState<string>((defaultValue as string) ?? '');
     const onInput = (v: ChangeEvent<HTMLInputElement>) => {
       if (regex !== undefined && regex.test(v.target.value) === false) return;
@@ -31,6 +31,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
         <input
           className={classNames(
             'rounded bg-grey-200 outline-none p-2 h-[40px] w-full border-solid border-[1px] focus:border-solid focus:border-teal-500',
+            className,
             {
               'border-tomato-500': !!error,
               'border-grey-200': !error,
