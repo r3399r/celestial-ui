@@ -6,14 +6,30 @@ export type Props = InputHTMLAttributes<HTMLInputElement> & {
   helper?: string;
   error?: boolean | string;
   regex?: RegExp;
+  startsWith?: string;
 };
 
 const Input = forwardRef<HTMLInputElement, Props>(
-  ({ label, helper, error, disabled, onChange, regex, defaultValue, className, ...props }, ref) => {
+  (
+    {
+      label,
+      helper,
+      error,
+      disabled,
+      onChange,
+      regex,
+      defaultValue,
+      className,
+      startsWith,
+      ...props
+    },
+    ref,
+  ) => {
     const [value, setValue] = useState<string>((defaultValue as string) ?? '');
     const onInput = (v: ChangeEvent<HTMLInputElement>) => {
-      if (regex !== undefined && regex.test(v.target.value) === false) return;
-      setValue(v.target.value);
+      const input = startsWith ? v.target.value.substring(startsWith.length) : v.target.value;
+      if (regex !== undefined && regex.test(input) === false) return;
+      setValue(input);
       onChange && onChange(v);
     };
 
@@ -42,7 +58,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
           ref={ref}
           disabled={disabled}
           autoComplete="off"
-          value={value}
+          value={`${startsWith ?? ''}${value}`}
           onChange={onInput}
           {...props}
         />
