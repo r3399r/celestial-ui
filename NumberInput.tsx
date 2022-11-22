@@ -9,6 +9,7 @@ const NumberInput = forwardRef<HTMLInputElement, Props>(({ decimal, ...props }, 
   <Input
     regex={decimal > 0 ? new RegExp(`^[0-9]*\\.?[0-9]{0,${decimal}}$`) : new RegExp('^[0-9]*$')}
     ref={ref}
+    inputMode="numeric"
     {...props}
   />
 ));

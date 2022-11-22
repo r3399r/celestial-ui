@@ -30,7 +30,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
       const input = startsWith ? v.target.value.substring(startsWith.length) : v.target.value;
       if (regex !== undefined && regex.test(input) === false) return;
       setValue(input);
-      onChange && onChange(v);
+      onChange && onChange({ ...v, target: { ...v.target, value: input } });
     };
 
     return (
