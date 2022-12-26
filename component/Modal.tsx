@@ -27,7 +27,7 @@ const Modal = ({ children, handleClose, showClose = true, px = true, ...props }:
         </div>
       )}
       <div
-        className={classNames('pb-[20px]', {
+        className={classNames({
           'pt-[20px]': !showClose,
           'px-5': px,
         })}
