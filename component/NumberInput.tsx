@@ -12,7 +12,7 @@ const NumberInput = forwardRef<HTMLInputElement, Props>(
       regex={
         decimal > 0
           ? new RegExp(`^${allowNegative ? '-?' : ''}[0-9]*\\.?[0-9]{0,${decimal}}$`)
-          : new RegExp('^[0-9]*$')
+          : new RegExp(`^${allowNegative ? '-?' : ''}[0-9]*$`)
       }
       ref={ref}
       inputMode="numeric"
