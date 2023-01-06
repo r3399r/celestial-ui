@@ -7,7 +7,7 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const Button = ({ appearance = 'primary', className, ...props }: Props) => (
   <button
-    className={classNames('rounded-[10px] p-[10px] text-[14px] font-bold outline-none', className, {
+    className={classNames('rounded-[10px] px-[30px] py-[10px] text-[14px] font-bold outline-none', className, {
       'bg-navy-700 text-white active:bg-navy-500 disabled:bg-navy-100 disabled:text-opacity-40':
         appearance === 'primary',
       'bg-grey-500 text-navy-900 active:bg-grey-300 disabled:text-opacity-30':
