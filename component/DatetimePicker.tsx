@@ -54,7 +54,7 @@ const DatetimePicker = ({ label, initDate, onChange, cancelTxt, confirmTxt }: Pr
             timeIcon={<img src={IcClock} />}
             inputFormat="yyyy/MM/dd HH:mm"
           />
-          <div className="flex gap-[15px] justify-end mr-3">
+          <div className="flex gap-[15px] justify-end mr-3 mb-4">
             <Button
               appearance="secondary"
               onClick={() => {
