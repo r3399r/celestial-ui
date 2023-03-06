@@ -1,6 +1,6 @@
 import { LocalizationProvider, StaticDateTimePicker } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { format } from 'date-fns';
+import format from 'date-fns/format';
 import { useState } from 'react';
 import Button from './Button';
 import IcCalendar from './image/ic-calendar.svg';
